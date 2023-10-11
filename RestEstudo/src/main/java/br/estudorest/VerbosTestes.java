@@ -244,17 +244,17 @@ public class VerbosTestes {
 		// Para assim sendo obrigado passar os valor na chamada 
 		
 		given()
-		.log().all()
-		.contentType(ContentType.JSON)
-		.body(user) // Aqui ele passa o objeto
+			.log().all()
+			.contentType(ContentType.JSON)
+			.body(user) // Aqui ele passa o objeto
 			.when()
 				.post("https://restapi.wcaquino.me/users")
 			.then()
-			.log().all()
-			.statusCode(200)
-			.body("id", is(notNullValue()))
-			.body("name", is("Usuario via objeto"))
-			.body("age", is(35))
+				.log().all()
+				.statusCode(200)
+				.body("id", is(notNullValue()))
+				.body("name", is("Usuario via objeto"))
+				.body("age", is(35))
 			;
 		
 		
@@ -280,9 +280,9 @@ public class VerbosTestes {
 			.when()
 				.post("https://restapi.wcaquino.me/users")
 			.then()
-			.log().all()
-			.statusCode(200)
-			.extract().body().as(User.class)
+				.log().all()
+				.statusCode(200)
+				.extract().body().as(User.class)
 			;
 		
 		System.out.println(usuarioInserido);
@@ -293,6 +293,7 @@ public class VerbosTestes {
 		
 	}
 	
-	
+
+
 
 }
