@@ -51,4 +51,25 @@ public class EnviaDadosTest {
 
     }
 
+    @Test
+    public void deveEnviarValorViaHeader(){
+        given() //Aqui ele faz a requisição normalmente
+                .log().all()
+                .accept(ContentType.JSON) // Aqui ele diz que só a aceita json
+                // é diferente da parametrização que fala qual contentType a requisição vai aceitar
+                .when()
+                .get("https://restapi.wcaquino.me/v2/users?format=json")
+                // Acima ele adiciona o parametro de query direto na requisição ?format=json
+                .then()
+                .log().all()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+        ;
+
+
+
+    }
+
+    // Copiar validação de body response por html
+
 }
